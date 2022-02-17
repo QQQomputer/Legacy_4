@@ -32,6 +32,11 @@ public class BankBookDAO {
 		return sqlSession.selectOne(NAMESPACE+"detail", num);
 	}
 	
+	//delete
+	public int delete(BankBookDTO bankBookDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"delete", bankBookDTO);
+	}
+	
 	
 	
 }

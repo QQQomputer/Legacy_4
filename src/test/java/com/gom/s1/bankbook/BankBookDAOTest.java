@@ -37,19 +37,28 @@ public class BankBookDAOTest extends MyJunitTest {
 		assertEquals(1, result);
 	}
 	
-//	@Test
-//	public void detailTest() throws Exception {
-//		BankBookDTO bankBookDTO = new BankBookDTO();
-//		bankBookDTO.setBookNumber(2L);
-//		bankBookDTO = bankBookDAO.detail(bankBookDTO);
-//		assertNotNull(bankBookDTO);
-//	}
 	@Test
 	public void detailTest() throws Exception {
 		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO = bankBookDAO.detail(2L);
+		bankBookDTO.setBookNumber(2L);
+		bankBookDTO = bankBookDAO.detail(bankBookDTO);
 		assertNotNull(bankBookDTO);
-	}	
+	}
+//	@Test
+//	public void detailTest() throws Exception {
+//		BankBookDTO bankBookDTO = new BankBookDTO();
+//		bankBookDTO = bankBookDAO.detail(2L);
+//		assertNotNull(bankBookDTO);
+//	}	
+	
+	@Test
+	public void deleteTest() throws Exception{
+		BankBookDTO bankBookDTO = new BankBookDTO();
+		bankBookDTO.setBookNumber(3L);
+		int result = bankBookDAO.delete(bankBookDTO);
+		assertEquals(1, result);
+	}
+	
 	
 	
 }
