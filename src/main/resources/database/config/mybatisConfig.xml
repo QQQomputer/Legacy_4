@@ -8,6 +8,7 @@
   	<typeAliases>
   		<!-- <typeAlias type="풀패키지명.클래스명" alias="별칭(클래스명)"/> -->
   		<typeAlias type="com.gom.s1.bankbook.BankBookDTO" alias="BankBookDTO"/>
+  		<typeAlias type="com.gom.s1.member.MemberDTO" alias="MemberDTO"/>
   		<typeAlias type="com.gom.s1.notice.NoticeDTO" alias="NoticeDTO"/>
   		<!-- <typeAlias type="java.lang.Long" alias="Long"/> -->
   	</typeAliases>

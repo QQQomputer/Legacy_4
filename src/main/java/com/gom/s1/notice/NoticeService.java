@@ -4,21 +4,23 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 @Service
 public class NoticeService {
-
+	
 	@Autowired
 	private NoticeDAO noticeDAO;
-	
-	
-	
-	
-	//list
-	public List<NoticeDTO> list() throws Exception{		
-		List<NoticeDTO> ar = noticeDAO.list();				
-		return ar;
+
+	public int add(NoticeDTO noticeDTO)throws Exception{
+		return noticeDAO.add(noticeDTO);
 	}
 	
+	public NoticeDTO detail(NoticeDTO noticeDTO)throws Exception{
+		return noticeDAO.detail(noticeDTO);
+	}
+	//list
+	public List<NoticeDTO> list ()throws Exception{
+		return noticeDAO.list();
+	}
+
 }
