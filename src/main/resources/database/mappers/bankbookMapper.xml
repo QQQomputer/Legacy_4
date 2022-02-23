@@ -25,5 +25,9 @@
 	<delete id="delete" parameterType="BankBookDTO"> <!-- id는 DAO의 메서드명 -->
 		DELETE BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
 	</delete>
+	
+	<update id="update" parameterType="BankBookDTO"> <!-- id는 DAO의 메서드명 -->
+		UPDATE BANKBOOK SET BOOKNAME= #{bookName}, BOOKCONTENTS = #{bookContents}, BOOKRATE = #{bookRate}, BOOKSALE = #{bookSale} WHERE BOOKNUMBER=#{bookNumber}
+	</update>
 
 </mapper>

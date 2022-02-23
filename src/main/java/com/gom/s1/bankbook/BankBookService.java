@@ -44,7 +44,10 @@ public class BankBookService {
 		return ar;		
 	}
 	
-	
+	//update
+	public int update(BankBookDTO bankBookDTO) throws Exception{
+		return bankBookDAO.update(bankBookDTO);
+	}
 	
 	
 }
