@@ -10,6 +10,10 @@ public class MemberService {
 	private MemberDAO memberDAO;
 	
 	
+	public int update(MemberDTO memberDTO) throws Exception {
+		return memberDAO.update(memberDTO);
+	}
+	
 	public int join(MemberDTO memberDTO) throws Exception {
 		return memberDAO.join(memberDTO);
 	}

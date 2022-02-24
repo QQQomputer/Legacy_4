@@ -16,8 +16,7 @@
 		Title<input type="text" name="title">
 		Writer<input type="text" name="writer">
 		Contents<textarea name="contents" rows="" cols=""></textarea>
-		<button type="submit">ADD</button>
-	
+		<button type="submit">ADD</button>	
 	</form>
 </body>
 </html>

@@ -11,8 +11,12 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.gom.s1.member.MemberDAO.";
 	
-	//join  회원가입 폼
+	//UPDATE
+	public int update(MemberDTO memberDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"update", memberDTO);
+	}
 	
+	//join  회원가입 폼
 	public int join(MemberDTO memberDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"join", memberDTO);
 	}

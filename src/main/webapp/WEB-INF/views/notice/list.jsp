@@ -7,12 +7,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
+<style>
+	.aaa1 {
+		background-color: lightgray;
+	}
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 	<h1>Notice List page</h1>
 	
-	<table>
+	<table class="aaa1">
 		<tr>
 			<td>Num</td><td>Title</td><td>Writer</td><td>Date</td><td>Hit</td>
 		</tr>
@@ -26,9 +31,7 @@
 		</tr>
 		
 		</c:forEach>
-		
-		<a href="./add">ADD</a>
 	</table>
-
+	<div><a href="./add">ADD</a></div>
 </body>
 </html>

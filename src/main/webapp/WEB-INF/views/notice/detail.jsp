@@ -17,5 +17,6 @@
 	<h3>Contents : ${dto.contents}</h3>
 	
 	<a href="./list">List</a>
+	<div><a href="./update?num=${dto.num}">Update</a></div>
 </body>
 </html>
