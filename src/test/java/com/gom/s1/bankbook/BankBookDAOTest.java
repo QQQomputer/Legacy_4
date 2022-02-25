@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gom.s1.MyJunitTest;
+import com.gom.s1.util.Pager;
 
 public class BankBookDAOTest extends MyJunitTest {
 
@@ -20,23 +21,43 @@ public class BankBookDAOTest extends MyJunitTest {
 		assertNotNull(bankBookDAO);
 	}
 	
-	//@Test
+	@Test
 	public void listTest() throws Exception{
-		List<BankBookDTO> ar = bankBookDAO.list();
-		assertNotEquals(0, ar.size());
+		Pager pager = new Pager();
+		pager.setPerPage(5L);
+		pager.makeRow();
+		List<BankBookDTO> ar = bankBookDAO.list(pager);
+		System.out.println(ar.get(0).getBookNumber());
+		System.out.println(ar.get(4).getBookNumber());
+		assertEquals(5, ar.size());
 	}
 	
-	@Test
+	//@Test
 	public void addTest() throws Exception {
 		
-		for(int i=0; i<10;i++) {
+		for(int i=0; i<200;i++) {
 			BankBookDTO bankBookDTO = new BankBookDTO();
 			bankBookDTO.setBookName("bookName"+i);
 			bankBookDTO.setBookContents("Contents"+i);
-			bankBookDTO.setBookRate(1.12+i);
+			
+			double rate = Math.random();
+			int r = (int)(rate*1000);
+			rate = r/100.0;
+			
+			
+			bankBookDTO.setBookRate(rate);
 			bankBookDTO.setBookSale(1);
 			int result = bankBookDAO.add(bankBookDTO);
+			
+			if(i%10==0) {
+				Thread.sleep(1000);
+			}
+			
 		}
+		
+		
+		
+		
 		
 		System.out.println("add테스트");
 		

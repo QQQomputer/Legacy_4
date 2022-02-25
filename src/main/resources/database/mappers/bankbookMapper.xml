@@ -5,8 +5,41 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.gom.s1.bankbook.BankBookDAO">
-	<select id="list" resultType="BankBookDTO">
-		SELECT * FROM BANKBOOK
+	<select id="list" parameterType="Pager" resultType="BankBookDTO">
+		SELECT * FROM
+			(SELECT ROWNUM R, B.* FROM
+				(SELECT * FROM BANKBOOK 
+				WHERE BOOKNUMBER>0 
+				AND 
+				<choose>
+					<when test="kind=='col1'">
+						BOOKNAME
+					</when>
+<!-- 					<when test="kind==''">
+						BOOKNAME
+					</when> -->
+					<otherwise>
+						BOOKCONTENTS
+					</otherwise>
+				</choose>				
+				LIKE '%'||#{search}||'%' 
+				ORDER BY BOOKNUMBER DESC) B)
+		WHERE R BETWEEN #{startRow} AND #{lastRow} <!-- LIKE #{search} -->
+	</select>
+
+	<select id="total" parameterType="Pager" resultType="Long">
+		SELECT COUNT(BOOKNUMBER) FROM BANKBOOK
+		WHERE BOOKNUMBER>0 
+		AND 
+		<choose>
+			<when test="kind=='col1'">
+				BOOKNAME
+			</when>
+			<otherwise>
+				BOOKCONTENTS
+			</otherwise>
+		</choose>				
+		LIKE '%'||#{search}||'%'
 	</select>
 
 	<insert id="add" parameterType="BankBookDTO">
