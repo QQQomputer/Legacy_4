@@ -32,9 +32,16 @@ public class BankBookController {
 	
 	//delete
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
-	public String delete(BankBookDTO bankBookDTO) throws Exception{
+	public String delete(BankBookDTO bankBookDTO, Model model) throws Exception{
 		int result = bankBookService.delete(bankBookDTO);
-		return "redirect:./list";
+
+		if(result !=0) {
+			model.addAttribute("message", "삭제 성공");
+		}else {
+			model.addAttribute("message", "삭제 실패");			
+		}
+		model.addAttribute("path", "bankbook/list");
+		return "common/result";
 	}
 	
 	
@@ -54,9 +61,21 @@ public class BankBookController {
 	
 	//detail
 	@RequestMapping(value = "detail", method =RequestMethod.GET)
-	public void detail(BankBookDTO bankBookDTO, Model model) throws Exception {
+	public String detail(BankBookDTO bankBookDTO, Model model) throws Exception {
 		bankBookDTO = bankBookService.detail(bankBookDTO);
-		model.addAttribute("dto", bankBookDTO);
+
+		String view = "common/result";
+		
+		if(bankBookDTO != null) {
+			view = "bankbook/detail";
+			model.addAttribute("dto", bankBookDTO);
+		}else {
+			model.addAttribute("message", "없는 번호입니다.");
+			model.addAttribute("path", "./list");
+		}
+
+		return view;
+
 	}
 	
 	

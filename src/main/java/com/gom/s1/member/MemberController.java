@@ -34,11 +34,6 @@ public class MemberController {
 		model.addAttribute("dto", memberDTO);
 	}
 	
-	
-	@RequestMapping(value = "join", method = RequestMethod.GET)
-	public void join() throws Exception {
-	}
-	
 	//mypage
 	@RequestMapping(value="mypage", method = RequestMethod.GET)
 	public ModelAndView mypage(HttpSession session) throws Exception {
@@ -67,6 +62,15 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
+	@RequestMapping(value = "join", method = RequestMethod.GET)
+	public void join() throws Exception {
+	}
+	
+	@RequestMapping(value = "joinCheck", method = RequestMethod.GET)
+	public void joinCheck() throws Exception {
+		
+	}
+	
 	//select
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(HttpSession session,MemberDTO memberDTO, String remember, Model model, HttpServletResponse response) throws Exception{	
@@ -86,11 +90,22 @@ public class MemberController {
 			response.addCookie(cookie);
 		}
 		memberDTO = memberService.login(memberDTO);
-		String path = "redirect:./login";	
+//		String path = "redirect:./login";	
+//		if(memberDTO != null) {
+//			session.setAttribute("member", memberDTO);
+//			path = "redirect:../";
+//		}		
+		String message = "Login Fail";
+		String p = "./login";		
 		if(memberDTO != null) {
 			session.setAttribute("member", memberDTO);
-			path = "redirect:../";
-		}		
+			message = "Login Success";
+			p="../";
+		}	
+		
+		model.addAttribute("message", message);
+		model.addAttribute("path", p);
+		String path="common/result";
 		return path;
 	}
 	
