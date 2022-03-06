@@ -9,8 +9,10 @@
 
 <link href="../resources/css/table.css" rel="styleSheet"/>
 <link href="../resources/css/list.css" rel="styleSheet"/>
+	<c:import url="../template/header_css.jsp"></c:import>
 </head>
 <body>
+	<c:import url="../template/header.jsp"></c:import>
 <!-- bookName, bookRate, bookSale -->
 	<div class="table-container">
 		<h1 class="title">BankBook List Page</h1>

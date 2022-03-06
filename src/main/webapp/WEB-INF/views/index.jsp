@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<c:import url="./template/header_css.jsp"></c:import>
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+sharp"  rel="stylesheet">
 
 	<style type="text/css">
@@ -14,7 +14,7 @@
 			content: "|"
 		}
 	</style>
-
+	<c:import url="./template/header_css.jsp"></c:import>
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
