@@ -15,9 +15,6 @@
 					<when test="kind=='col1'">
 						BOOKNAME
 					</when>
-<!-- 					<when test="kind==''">
-						BOOKNAME
-					</when> -->
 					<otherwise>
 						BOOKCONTENTS
 					</otherwise>

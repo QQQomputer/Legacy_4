@@ -24,8 +24,8 @@ public class NoticeService {
 		return noticeDAO.detail(noticeDTO);
 	}
 	//list
-	public List<NoticeDTO> list ()throws Exception{
-		return noticeDAO.list();
+	public List<NoticeDTO> list (NoticeDTO noticeDTO)throws Exception{
+		return noticeDAO.list(noticeDTO);
 	}
 
 }

@@ -62,8 +62,9 @@ public class NoticeController {
 	
 	@RequestMapping(value = "list", method=RequestMethod.GET)
 	public ModelAndView list()throws Exception{
+		NoticeDTO noticeDTO = new NoticeDTO();
 		ModelAndView mv = new ModelAndView();
-		List<NoticeDTO> ar = noticeService.list();
+		List<NoticeDTO> ar = noticeService.list(noticeDTO);
 		mv.addObject("list", ar);
 		mv.setViewName("notice/list");
 		return mv;

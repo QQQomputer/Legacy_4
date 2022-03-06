@@ -63,7 +63,6 @@ public class BankBookController {
 	//list
 	@RequestMapping(value="list", method = RequestMethod.GET)
 	public ModelAndView list(ModelAndView mv, Pager pager) throws Exception {////
-		System.out.println("hi");
 		//ModelAndView modelAndView = new ModelAndView();
 		List<BankBookDTO> ar = bankBookService.list(pager);
 		mv.addObject("list", ar);
