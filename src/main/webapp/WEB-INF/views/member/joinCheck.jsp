@@ -50,6 +50,9 @@
 			</fieldset>
 			<div></div>
 		</div>
+		<div class="rule">
+			<button id="btn">Join</button>
+		</div>
 	</div>
 	
 	<script src="../resources/js/joinCheck.js"></script>

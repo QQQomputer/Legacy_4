@@ -16,7 +16,8 @@
         </fieldset>
         <fieldset>
             <legend>PASSWORD</legend>
-            <input type="password" name="pw">
+            <input type="password" name="pw" placeholder="8글자 이상 12글자 이하로 작성">
+            <div id="pwResult"></div>
         </fieldset>
         <fieldset>
             <legend>NAME</legend>
